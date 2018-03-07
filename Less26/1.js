@@ -1,9 +1,9 @@
 		$(document).ready(function(){
-			$('button').on('click' , myAJAX);
+			$('button').on('click' , myAJAX2);
 		});
 
 		function myAJAX() {
-			$.post(
+			$.get(
 				"backend.php",
 				{
 					"a" : $('#num1').val()
@@ -12,4 +12,15 @@
 					console.log(data);
 				}
 				);
+		}
+
+		function myAJAX2(){
+			$.ajax({
+				url : "backend.php",
+				type: "GET",
+				data: {"a" : $('#num1').val()},
+				success : function (data) {
+					console.log(data);
+				}
+			});
 		}
